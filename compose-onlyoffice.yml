@@ -1,7 +1,8 @@
 services:
   onlyoffice-documentserver:
-    build:
-      context: .
+    image: onlyoffice/documentserver:latest
+    # build:
+      # context: .
     container_name: onlyoffice-documentserver
     depends_on:
       - onlyoffice-postgresql
@@ -58,7 +59,7 @@ services:
       - '5672'
     networks:
       - frontend
-      
+
   onlyoffice-postgresql:
     container_name: onlyoffice-postgresql
     image: postgres:12
