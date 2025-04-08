@@ -13,7 +13,7 @@ A changer bien sur avec vos propres adresses :)
 
 ## A lancer après l'install :
 
-### Modif du fichier config.php
+### Modif du fichier data/www/html/config/config.php
 
 ```php
   'trusted_proxies' =>                                          
@@ -27,6 +27,7 @@ A changer bien sur avec vos propres adresses :)
   array (
     0 => 'nuage.lamiete.fr',
   ),
+  'memcache.locking' => '\OC\Memcache\Redis',
   'redis' => 
   array (
     'host' => 'nextcloud_redis', 
@@ -35,14 +36,16 @@ A changer bien sur avec vos propres adresses :)
     'password' => '',
   ),
 
+
 ```
 
 ### Commande de finalisation d'install :
-
-`docker compose exec --user www-data nextcloud_app php occ db:add-missing-indices`
-`docker compose exec --user www-data nextcloud_app php occ maintenance:repair --include-expensive`
-`docker compose exec --user www-data nextcloud_app php occ config:system:set maintenance_window_start --type=integer --value=1`
-`docker compose exec --user www-data nextcloud_app php occ config:system:set default_phone_region --value=“FR”`
+```
+docker compose exec --user www-data nextcloud_app php occ db:add-missing-indices
+docker compose exec --user www-data nextcloud_app php occ maintenance:repair --include-expensive
+docker compose exec --user www-data nextcloud_app php occ config:system:set maintenance_window_start --type=integer --value=1
+docker compose exec --user www-data nextcloud_app php occ config:system:set default_phone_region --value=“FR”
+```
 
 ### Crontab 
 
