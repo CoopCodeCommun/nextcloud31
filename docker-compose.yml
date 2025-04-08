@@ -23,8 +23,8 @@ services:
     hostname: nextcloud_app
     image: nextcloud:31
     restart: always
-    # ports:
-      # - 8090:80
+    ports:
+      - 8090:80
     depends_on:
       - nextcloud_db
     volumes:
