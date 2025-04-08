@@ -1,6 +1,4 @@
 services:
-
-services:
   onlyoffice-documentserver:
     build:
       context: .
