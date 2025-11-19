@@ -29,6 +29,8 @@ services:
       - nextcloud_db
     volumes:
       - ./data/www/html:/var/www/html
+    environment:
+      - NC_skeletondirectory=
     networks:
       - nextcloud_db
       - frontend
